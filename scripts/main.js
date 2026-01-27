@@ -18,6 +18,12 @@ smudge.onclick = function(e){
 
 obombo.onclick = function(e){
     obombo_now = new Date().getTime();
+    if(obombo_timer_running){
+        obombo_timer_running = false;
+        this.textContent = 'NONE';
+        return;
+    }
+
     obombo_timer_running = true;
     this.textContent = 'CALM';
 };
