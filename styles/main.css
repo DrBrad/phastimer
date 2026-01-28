@@ -20,6 +20,30 @@
     --ghost-green: #6bffb0;
 }
 
+* {
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+    -khtml-user-select: none; /* Konqueror HTML */
+    -moz-user-select: none; /* Old versions of Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                supported by Chrome, Edge, Opera and Firefox */
+}
+
+@media (min-width: 800px) {/*(pointer: coarse) or */
+    label[settings] {
+        display: none !important;
+    }
+
+    sidebar {
+        position: relative !important;
+        display: flex !important;
+        width: 500px !important;
+        border-left: solid var(--border-light) 1px !important;
+    }
+}
+
 html {
     color: var(--text-primary);
     background-color: var(--background);
@@ -51,23 +75,19 @@ html {
 }
 
 body {
+    display: flex;
+    min-width: 800px;
     margin: 0;
 }
 
 section {
     display: flex;
+    flex: 1;
     height: calc(100vh - 2px);
     flex-direction: column;
-    -webkit-touch-callout: none; /* iOS Safari */
-    -webkit-user-select: none; /* Safari */
-    -khtml-user-select: none; /* Konqueror HTML */
-    -moz-user-select: none; /* Old versions of Firefox */
-        -ms-user-select: none; /* Internet Explorer/Edge */
-            user-select: none; /* Non-prefixed version, currently
-                                supported by Chrome, Edge, Opera and Firefox */
 }
 
-div {
+section div {
     display: flex;
     flex: 1;
     width: 100%;
@@ -83,6 +103,10 @@ section div:not(:last-child) {
     border-bottom: solid 1px var(--border);
 }
 
+section div:active {
+    background-color: var(--background-secondary);
+}
+
 #smudge {
 }
 
@@ -94,3 +118,172 @@ section div:not(:last-child) {
     color: var(--ghost-green);
 }
 
+label[settings] {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    display: block;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    z-index: 2;
+}
+
+label[settings] svg {
+    fill: var(--text-primary);
+    transition: fill 0.3s;
+}
+
+label[settings]:hover svg {
+    fill: var(--text-secondary);
+}
+
+sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    height: calc(100vh - 40px);
+    padding: 20px;
+    gap: 20px;
+    background-color: var(--background-secondary);
+}
+
+#settings:checked ~ sidebar {
+    display: none;
+}
+
+vcolumn {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    gap: 10px;
+}
+
+hcolumn {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+h2, h3, p {
+    margin: 0;
+    padding: 0;
+}
+
+h2 {
+    color: var(--primary);
+}
+
+h3 {
+    font-weight: normal;
+}
+
+p {
+    color: var(--text-secondary);
+}
+
+input[type='checkbox'] {
+    display: none;
+}
+
+label[checkbox] {
+    position: relative;
+    width: 50px;
+    height: 20px;
+    background-color: var(--text-secondary);
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+label[checkbox]:after {
+    position: absolute;
+    top: -2.5px;
+    left: 0;
+    width: 25px;
+    height: 25px;
+    content: '';
+    background-color: var(--primary);
+    border-radius: 50px;
+    transition: left 0.2s;
+}
+
+input[type='checkbox']:checked ~ label[checkbox] {
+    background-color: var(--secondary);
+}
+
+input[type='checkbox']:checked ~ label[checkbox]:after {
+    left: calc(100% - 25px);
+}
+
+
+
+
+progress-bar {
+    position: relative;
+    display: flex;
+    width: 100%;
+    height: 20px;
+    padding: 10px 0px;
+    margin: auto;
+    align-items: center;
+    --seek: 0%;
+    --loaded: 0%;
+    z-index: 10;
+}
+
+bar {
+    display: block;
+    position: relative;
+    width: 100%;
+    height: 5px;
+    background-color: rgba(255, 255, 255, 0.6);
+    transition: height 0.3s;
+    cursor: pointer;
+}
+
+bar:after {
+    display: block;
+    content: '';
+    position: absolute;
+    top: 0;
+    height: 100%;
+    background-color: var(--primary);
+}
+
+progress-bar bar:after {
+    width: var(--seek);
+}
+
+progress-bar:hover bar {
+    height: 10px;
+}
+
+thumb {
+    display: block;
+    position: relative;
+    top: -100%;
+    width: 15px;
+    height: 15px;
+    aspect-ratio: 1 / 1;
+    margin-left: -7.5px;
+    background-color: var(--primary);
+    transition: width 0.3s, height 0.3s, top 0.3s, margin-left 0.3s;
+    box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.2);
+    border-radius: 100%;
+    z-index: 2;
+}
+
+progress-bar thumb {
+    left: var(--seek);
+}
+
+progress-bar:hover thumb, volume-bar:hover thumb {
+    width: 25px;
+    height: 25px;
+    margin-left: -12.5px;
+    top: -80%;
+}
