@@ -1,6 +1,8 @@
 const smudge = document.getElementById('smudge');
 const obombo = document.getElementById('obombo');
 const ms = document.getElementById('ms');
+const ghostSpeed = document.getElementById('ghost-speed');
+const bloodMoon = document.getElementById('blood-moon');
 const state = new TapState();
 
 var smudge_timer_running = false, obombo_state = false, new_state = false, obombo_timer_running = false;
@@ -31,7 +33,13 @@ obombo.onclick = function(e){
 ms.onclick = function(e){
     const out = state.tapAndCompute();
     if(out){
-        this.textContent = `${out.ms.toFixed(2)} m/s`;
+        let ms = out.ms;
+
+        if(bloodMoon.checked){
+            ms = ms*0.85;
+        }
+
+        this.textContent = `${ms.toFixed(2)} m/s`;
         return;
     }
     this.textContent = '0.00 m/s';
@@ -48,7 +56,7 @@ setInterval(function(){
         const elapsed = time - obombo_now;
 
         if(elapsed < 60000){
-            if (obombo_state !== false) {
+            if(obombo_state !== false){
                 obombo_state = false;
                 obombo.textContent = 'CALM';
             }
@@ -76,10 +84,10 @@ function msToMsm(ms){
     const minutes = Math.floor(totalSeconds / 60) % 60;
     
     return (
-        String(minutes).padStart(2, "0") +
-        ":" +
-        String(seconds).padStart(2, "0") +
-        "." +
-        String(centiseconds).padStart(2, "0")
+        String(minutes).padStart(2, '0') +
+        ':' +
+        String(seconds).padStart(2, '0') +
+        '.' +
+        String(centiseconds).padStart(2, '0')
     );
 }

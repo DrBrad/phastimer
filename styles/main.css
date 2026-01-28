@@ -76,7 +76,6 @@ html {
 
 body {
     display: flex;
-    min-width: 800px;
     margin: 0;
 }
 
@@ -142,8 +141,8 @@ sidebar {
     position: fixed;
     top: 0;
     left: 0;
-    width: 100%;
-    display: flex;
+    width: calc(100% - 40px);
+    display: none;
     flex-direction: column;
     height: calc(100vh - 40px);
     padding: 20px;
@@ -152,7 +151,7 @@ sidebar {
 }
 
 #settings:checked ~ sidebar {
-    display: none;
+    display: flex;
 }
 
 vcolumn {
