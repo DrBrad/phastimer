@@ -87,6 +87,7 @@ section {
 }
 
 section div {
+    position: relative;
     display: flex;
     flex: 1;
     width: 100%;
@@ -100,6 +101,27 @@ section div {
 
 section div:not(:last-child) {
     border-bottom: solid 1px var(--border);
+}
+
+section div:before {
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    content: 'Smudge';
+    color: var(--border);
+    font-size: 0.3em;
+}
+
+#smudge:before {
+    content: 'Smudge Timer';
+}
+
+#obombo:before {
+    content: 'Obambo Timer';
+}
+
+#ms:before {
+    content: 'Ghost Speed';
 }
 
 section div:active {
