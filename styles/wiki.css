@@ -1,0 +1,27 @@
+section {
+    display: flex;
+    flex-wrap: wrap;
+    align-content: start;
+    gap: 20px;
+    padding: 20px;
+    min-height: calc(100vh - 42px);
+}
+
+card {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    gap: 10px;
+    min-width: 300px;
+    padding: 15px;
+    border-radius: 10px;
+    border: solid 1px var(--border);
+}
+
+h3 {
+    font-weight: normal;
+}
+
+p {
+    color: var(--text-secondary);
+}
