@@ -44,6 +44,11 @@
     }
 }
 
+@font-face {
+    font-family: 'Phasmophobia';
+    src: url('../fonts/october_crow.ttf');
+}
+
 html {
     color: var(--text-primary);
     background-color: var(--background);

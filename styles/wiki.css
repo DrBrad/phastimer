@@ -19,9 +19,154 @@ card {
 }
 
 h3 {
+    font-family: 'Phasmophobia';
     font-weight: normal;
+    font-size: 1.8em;
 }
 
 p {
     color: var(--text-secondary);
+}
+
+evidences {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+evidence {
+    display: flex;
+    gap: 5px;
+}
+
+evidence:before {
+    display: block;
+    content: '';
+    width: 1em;
+    height: 1em;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+evidence[type='ultraviolet']:before {
+    background-image: url('../images/fingerprints.png');
+}
+
+evidence[type='ultraviolet']:after {
+    content: 'Ultraviolet';
+    color: #ad8ce7;
+}
+
+evidence[type='orbs']:before {
+    background-image: url('../images/orbs.png');
+}
+
+evidence[type='orbs']:after {
+    content: 'Ghost Orbs';
+    color: #dbd993;
+}
+
+evidence[type='dots']:before {
+    background-image: url('../images/dots.png');
+}
+
+evidence[type='dots']:after {
+    content: 'Dots';
+    color: #2ccc29;
+}
+
+evidence[type='writing']:before {
+    background-image: url('../images/writing.png');
+}
+
+evidence[type='writing']:after {
+    content: 'Writing';
+    color: #4d8ce3;
+}
+
+evidence[type='freezing']:before {
+    background-image: url('../images/freezing.png');
+}
+
+evidence[type='freezing']:after {
+    content: 'Freezing';
+    color: #9ae0f7;
+}
+
+evidence[type='emf5']:before {
+    background-image: url('../images/emf5.png');
+}
+
+evidence[type='emf5']:after {
+    content: 'EMF 5';
+    color: #db4d48;
+}
+
+evidence[type='spirit-box']:before {
+    background-image: url('../images/spirit-box.png');
+}
+
+evidence[type='spirit-box']:after {
+    content: 'Spirit Box';
+    color: #d18c5e;
+}
+
+factors {
+    display: flex;
+    width: calc(100% - 20px);
+    gap: 15px;
+    align-items: center;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: var(--background-secondary);
+}
+
+factor {
+    display: flex;
+    gap: 5px;
+    align-items: center;
+}
+
+factor:before {
+    display: block;
+    content: '';
+    width: 1.2em;
+    height: 1.2em;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+factor[type='sanity']:before {
+    background-image: url('../images/sanity.png');
+}
+
+factor[type='nlos']:before {
+    background-image: url('../images/nlos.png');
+}
+
+factor[type='los']:before {
+    background-image: url('../images/los.png');
+}
+
+factor[type='footsteps']:before {
+    background-image: url('../images/footsteps.png');
+}
+
+factor[type='footsteps']:after {
+    display: block;
+    content: attr(speed)' m/s';
+}
+
+sanities {
+    display: flex;
+    flex-direction: column;
+    font-size: 0.75em;
+    color: var(--text-secondary);
+}
+
+sanities sanity:nth-child(2) {
+    font-size: 1.6em;
+    color: var(--text-primary);
 }
