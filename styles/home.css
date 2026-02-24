@@ -18,8 +18,12 @@
         border-left: solid var(--border-light) 1px !important;
     }
 
-    label[close] {
+    label[back] {
         display: none !important;
+    }
+
+    alert {
+        display: flex !important;
     }
 }
 
@@ -112,7 +116,7 @@ label[settings]:hover svg {
     fill: #000000;
 }
 
-label[close] {
+label[back] {
     display: block;
     width: 40px;
     height: 40px;
@@ -121,17 +125,30 @@ label[close] {
     cursor: pointer;
 }
 
-label[close] svg {
+label[back] svg, label[close] svg {
     fill: var(--text-primary);
 }
 
 
-label[close]:hover {
+label[back]:hover {
     background-color: var(--primary);
 }
 
-label[close]:hover svg {
+label[back]:hover svg {
     fill: #000000;
+}
+
+label[close] {
+    display: block;
+    width: 20px;
+    height: 20px;
+    border-radius: 20px;
+    padding: 5px;
+    cursor: pointer;
+}
+
+label[close]:hover {
+    background-color: #000000;
 }
 
 sidebar {
@@ -283,4 +300,26 @@ progress-bar:hover thumb, volume-bar:hover thumb {
     height: 25px;
     margin-left: -12.5px;
     top: -80%;
+}
+
+alert {
+    position: fixed;
+    display: none;
+    left: 50px;
+    bottom: 50px;
+    padding: 10px;
+    width: calc(100% - 620px);
+    align-items: center;
+    background-color: var(--alert);
+    border-radius: 10px;
+    z-index: 3;
+}
+
+input[type='checkbox']:checked ~ alert {
+    display: none !important;
+}
+
+alert a {
+    flex: 1;
+    color: var(--text-primary);
 }
