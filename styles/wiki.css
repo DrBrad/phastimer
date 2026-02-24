@@ -1,10 +1,21 @@
+@media (min-width: 800px) {/*(pointer: coarse) or */
+    section {
+        top: calc(20px + var(--nav-height));
+    }
+
+    footer {
+        top: calc(20px + var(--nav-height)) !important;
+    }
+}
+
 section {
+    position: relative;
     display: flex;
     flex-wrap: wrap;
     align-content: start;
     gap: 20px;
     padding: 20px;
-    min-height: calc(100vh - 42px);
+    min-height: calc(100vh - (42px + var(--nav-height)));
 }
 
 card {
@@ -32,7 +43,7 @@ p {
 
 evidences {
     display: flex;
-    flex: auto;
+    flex: 1;
     flex-wrap: wrap;
     gap: 15px;
 }
@@ -118,7 +129,7 @@ evidence[type='spirit-box']:after {
 factors {
     display: flex;
     width: calc(100% - 20px);
-    flex: auto;
+    flex: 1;
     gap: 15px;
     align-items: center;
     padding: 10px;
@@ -173,4 +184,10 @@ sanities {
 sanities sanity:nth-child(2) {
     font-size: 1.6em;
     color: var(--text-primary);
+}
+
+footer {
+    position: relative;
+    top: 20px;
+    padding-bottom: calc(20px + var(--nav-height));
 }

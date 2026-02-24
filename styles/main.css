@@ -18,6 +18,8 @@
     --ripple: rgba(255, 255, 255, 0.15);
     --gold: #ffb224;
     --ghost-green: #6bffb0;
+
+    --nav-height: 43px;
 }
 
 * {
@@ -32,15 +34,23 @@
 }
 
 @media (min-width: 800px) {/*(pointer: coarse) or */
-    label[settings] {
+    header {
+        top: 0 !important;
+        bottom: unset !important;
+        border-top: unset !important;
+        border-bottom: solid 3px var(--primary);
+    }
+    
+    nav > ul > li {
+        flex: unset !important;
+    }
+    
+    nav > ul > li > a > svg {
         display: none !important;
     }
 
-    sidebar {
-        position: relative !important;
-        display: flex !important;
-        width: 500px !important;
-        border-left: solid var(--border-light) 1px !important;
+    nav > ul > li > a:before {
+        content: attr(title);
     }
 }
 
@@ -90,6 +100,54 @@ input[type='checkbox'] {
 h2, h3, p {
     margin: 0;
     padding: 0;
+}
+
+header {
+    position: fixed;
+    bottom: 0;
+    width: calc(100% - 40px);
+    padding: 0 20px;
+    background: #000000;
+    border-top: solid 3px var(--primary);
+    z-index: 2;
+}
+
+header > nav > ul {
+    display: flex;
+    align-items: center;
+    column-gap: 20px;
+    padding: 0;
+    margin: 0 auto;
+}
+
+nav > ul > li {
+    display: inline-block;
+    flex: 1;
+    justify-items: center;
+}
+
+ nav > ul > li > a {
+    display: block;
+    padding: 20px;
+    color: var(--text-primary);
+    text-decoration: none;
+    cursor: pointer;
+}
+
+nav > ul > li > a:hover {
+    color: #000000;
+    background-color: var(--primary);
+}
+
+nav > ul > li > a > svg {
+    display: block;
+    width: 20px;
+    height: 20px;
+    fill: var(--text-primary);
+}
+
+nav > ul > li > a:hover > svg {
+    fill: #000000;
 }
 
 footer {
