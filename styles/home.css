@@ -36,7 +36,7 @@ section {
     display: flex;
     flex: 1;
     gap: 20px;
-    height: calc(100vh - (60px + var(--nav-height)));
+    height: calc(100dvh - (60px + var(--nav-height)));
     padding: 20px;
     flex-direction: column;
 }
@@ -156,8 +156,8 @@ sidebar {
     position: fixed;
     left: 0;
     width: 100%;
-    height: calc(100vh - (20px + var(--nav-height)));
-    max-height: calc(100vh - (20px + var(--nav-height)));
+    height: calc(100dvh - (20px + var(--nav-height)));
+    max-height: calc(100dvh - (20px + var(--nav-height)));
     display: none;
     flex-direction: column;
     overflow-y: auto;
@@ -322,4 +322,9 @@ input[type='checkbox']:checked ~ alert {
 alert a {
     flex: 1;
     color: var(--text-primary);
+    text-decoration: none;
+}
+
+alert a:hover {
+    text-decoration: underline;
 }

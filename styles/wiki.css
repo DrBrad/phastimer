@@ -15,7 +15,7 @@ section {
     align-content: start;
     gap: 20px;
     padding: 20px;
-    min-height: calc(100vh - (42px + var(--nav-height)));
+    min-height: calc(100dvh - (42px + var(--nav-height)));
 }
 
 card {
@@ -181,7 +181,12 @@ sanities {
     color: var(--text-secondary);
 }
 
-sanities sanity:nth-child(2) {
+sanities sanity:nth-child(even) {
+    font-size: 1.4em;
+    color: var(--text-primary);
+}
+
+sanities sanity:only-child {
     font-size: 1.6em;
     color: var(--text-primary);
 }
