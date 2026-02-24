@@ -15,7 +15,9 @@ card {
     min-width: 300px;
     padding: 15px;
     border-radius: 10px;
-    border: solid 1px var(--border);
+    border: solid 1px var(--primary);
+    background-color: var(--background-secondary);
+    box-shadow: 0 0 10px var(--primary);
 }
 
 h3 {
@@ -30,6 +32,7 @@ p {
 
 evidences {
     display: flex;
+    flex: auto;
     flex-wrap: wrap;
     gap: 15px;
 }
@@ -115,11 +118,12 @@ evidence[type='spirit-box']:after {
 factors {
     display: flex;
     width: calc(100% - 20px);
+    flex: auto;
     gap: 15px;
     align-items: center;
     padding: 10px;
     border-radius: 5px;
-    background-color: var(--background-secondary);
+    background-color: #302236;
 }
 
 factor {
@@ -156,7 +160,7 @@ factor[type='footsteps']:before {
 
 factor[type='footsteps']:after {
     display: block;
-    content: attr(speed)' m/s';
+    content: attr(speed);
 }
 
 sanities {

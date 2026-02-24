@@ -5,7 +5,9 @@ body {
 section {
     display: flex;
     flex: 1;
-    height: calc(100vh - 2px);
+    gap: 20px;
+    height: calc(100vh - 40px);
+    padding: 20px;
     flex-direction: column;
 }
 
@@ -19,19 +21,20 @@ section div {
     text-align: center;
     font-size: 4em;
     font-weight: bold;
+    border-radius: 10px;
+    border: solid 1px var(--primary);
+    background-color: var(--background-secondary);
+    box-shadow: 0 0 10px var(--primary);
     cursor: pointer;
-}
-
-section div:not(:last-child) {
-    border-bottom: solid 1px var(--border);
 }
 
 section div:before {
     position: absolute;
-    top: 5px;
-    left: 5px;
+    top: 10px;
+    left: 10px;
     content: 'Smudge';
-    color: var(--border);
+    color: var(--text-primary);
+    font-family: 'Phasmophobia';
     font-size: 0.3em;
 }
 
@@ -48,7 +51,7 @@ section div:before {
 }
 
 section div:active {
-    background-color: var(--background-secondary);
+    background-color: var(--border);
 }
 
 #smudge {
@@ -101,7 +104,7 @@ sidebar {
     flex-direction: column;
     overflow-y: auto;
     gap: 20px;
-    background-color: var(--background-secondary);
+    background-color: var(--background);
 }
 
 sidebar content {
